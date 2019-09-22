@@ -27,7 +27,8 @@ class ItemCount {
             if ("Bill".equalsIgnoreCase(item)) {
                 break;
             } else if (itemKey.contains(item)) {
-                scannedItemsCount.put(item, scannedItemsCount.get(item) != null ? scannedItemsCount.get(item) + 1 : 1);
+                Integer count = scannedItemsCount.get(item);
+                scannedItemsCount.put(item, count != null ? count + 1 : 1);
             } else {
                 System.out.println("Please scan only the following items ");
                 itemKey.forEach(System.out::println);

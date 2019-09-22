@@ -20,11 +20,13 @@ public class OfferItemCount extends ItemCount {
         int itemCount = 0;
         for (String item : scannedItemsCount.keySet()
         ) {
+            Integer scannedItemCount = scannedItemsCount.get(item);
             if ("Apple".equalsIgnoreCase(item)) {
-                itemCount = scannedItemsCount.get(item) / 2 + scannedItemsCount.get(item) % 2;
+                itemCount = scannedItemCount / 2 + scannedItemCount % 2;
             } else if ("Orange".equalsIgnoreCase(item)) {
 
-                itemCount = (scannedItemsCount.get(item) / 3) > 0 ? scannedItemsCount.get(item) - (scannedItemsCount.get(item) / 3) : scannedItemsCount.get(item);
+                int groupBy3Count = scannedItemCount / 3;
+                itemCount = groupBy3Count > 0 ? scannedItemCount - groupBy3Count : scannedItemCount;
             }
             offerItemsCount.put(item, itemCount);
         }
