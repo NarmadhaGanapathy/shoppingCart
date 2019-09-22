@@ -1,4 +1,8 @@
 package com.shopping;
+
+import java.util.HashMap;
+import java.util.Map;
+
 /**
  * Created by Narmadha Ganapathy
  ***/
@@ -6,9 +10,11 @@ public class ShoppingCart {
 
     public static void main(String[] args) {
 
-	// get input from the user as scanned item and calculate the total price.
-    // Use a map to maintain the price for the items(apple, orange)
-    // calculate the total price  once the user is done scanning
-
+        Map<String, Double> itemsPrice = new HashMap<>();
+        itemsPrice.put("Apple", 0.60);
+        itemsPrice.put("Orange", 0.25);
+        ScanItems scanItems = new ScanItems();
+        PriceCaculator priceCaculator = new PriceCaculator();
+        System.out.println("Calculate price is " + priceCaculator.calculatePrice(scanItems.getItemsScanned(), itemsPrice));
     }
 }
