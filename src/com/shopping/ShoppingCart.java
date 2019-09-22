@@ -12,8 +12,12 @@ public class ShoppingCart {
         Map<String, Double> itemsPrice = new HashMap<>();
         itemsPrice.put("Apple", 0.60);
         itemsPrice.put("Orange", 0.25);
-        ScanItems scanItems = new ScanItems();
+        ItemCount itemCount = new ItemCount();
         PriceCaculator priceCaculator = new PriceCaculator();
-        System.out.println("Calculate price is " + priceCaculator.calculatePrice(scanItems.getItemsScanned(itemsPrice.keySet()), itemsPrice));
+        System.out.println("Calculated price is " + priceCaculator.calculatePrice(itemCount.getItemsCount(itemsPrice.keySet()), itemsPrice));
+        OfferItemCount offerItemCount =  new OfferItemCount();
+        System.out.println("Please try shopping with the offer price");
+        System.out.println("Calculated price with offer is "+ priceCaculator.calculatePrice(offerItemCount.getItemsCount(itemsPrice.keySet()),itemsPrice));
     }
+
 }
